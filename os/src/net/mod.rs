@@ -47,6 +47,7 @@ pub fn net_interrupt_handler() {
     // hexdump(&recv_buf[..len]);
 
     match packet {
+        // ARP协议允许主机借助一个IP地址查到对应主机的MAC地址
         Packet::ARP(arp_packet) => {
             let lose_stack = LOSE_NET_STACK.0.exclusive_access();
             let reply_packet = arp_packet
@@ -56,6 +57,7 @@ pub fn net_interrupt_handler() {
             NET_DEVICE.transmit(&reply_data)
         }
 
+        // 将收到的UDP数据包放到对应Socket的buffer缓冲区中
         Packet::UDP(udp_packet) => {
             let target = udp_packet.source_ip;
             let lport = udp_packet.dest_port;
