@@ -12,10 +12,24 @@ bitflags = "1.2.1"
 riscv = { git = "https://github.com/rcore-os/riscv", features = ["inline-asm"] }
 lazy_static = { version = "1.4.0", features = ["spin_no_std"] }
 embedded-graphics = "0.7.1"
-oorandom ="11"
+oorandom = "11"
 virtio-input-decoder = "0.1.4"
-parity-scale-codec = { version = "3.6.9", default-features = false }
-parity-scale-codec-derive = "3.6.9"
+
+codec = { package = "parity-scale-codec", version = "3.6.1", default-features = false, features = [
+	"derive",
+] }
+scale-info = { version = "2.5.0", default-features = false, features = [
+    "derive",
+] }
+frame-benchmarking = { version = "4.0.0-dev", default-features = false, optional = true, git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v1.0.0" }
+# frame-support = { version = "4.0.0-dev", default-features = false, git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v1.0.0" }
+frame-support = { path = "../dependencies/substrate-polkadot-v1.0.0/frame/support", default-features = false }
+# frame-system = { version = "4.0.0-dev", default-features = false, git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v1.0.0" }
+
+[dev-dependencies]
+# sp-core = { version = "21.0.0", git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v1.0.0" }
+# sp-io = { version = "23.0.0", git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v1.0.0" }
+# sp-runtime = { version = "24.0.0", git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v1.0.0" }
 
 [profile.release]
 debug = true
