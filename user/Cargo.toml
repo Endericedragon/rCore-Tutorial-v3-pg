@@ -23,7 +23,9 @@ scale-info = { version = "2.5.0", default-features = false, features = [
 ] }
 frame-benchmarking = { version = "4.0.0-dev", default-features = false, optional = true, git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v1.0.0" }
 # frame-support = { version = "4.0.0-dev", default-features = false, git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v1.0.0" }
-frame-support = { path = "../dependencies/substrate-polkadot-v1.0.0/frame/support", default-features = false }
+# frame-support = { path = "../dependencies/substrate-polkadot-v1.0.0/frame/support", default-features = false } # todo: error
+# todo: for test purpose
+sp-runtime = { version = "24.0.0", default-features = false, path = "../dependencies/substrate-polkadot-v1.0.0/primitives/runtime" } # todo: error
 # frame-system = { version = "4.0.0-dev", default-features = false, git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v1.0.0" }
 
 [dev-dependencies]
