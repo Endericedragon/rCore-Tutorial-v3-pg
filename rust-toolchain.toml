@@ -1,4 +1,4 @@
 [toolchain]
 profile = "minimal"
 # use the nightly version of the last stable toolchain, see <https://forge.rust-lang.org/>
-components = ["rust-src", "llvm-tools-preview", "rustfmt", "clippy"]
+components = ["rust-src", "llvm-tools", "rustfmt", "clippy"]
